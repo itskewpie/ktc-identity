@@ -8,6 +8,21 @@ require 'chef/rewind'
 
 include_recipe "keystone::keystone-common"
 
+platform_options = node["keystone"]["platform"]
+
+package_list = platform_options["memcache_python_packages"]
+ 
+package_list.each do |pkg|
+  package pkg do
+    if node["osops"]["do_package_upgrades"]
+      action :upgrade
+    else
+      action :install
+    end
+    options platform_options["package_options"]
+  end
+end
+
 ks_admin_bind = get_bind_endpoint("keystone", "admin-api")
 ks_service_bind = get_bind_endpoint("keystone", "service-api")
 settings = get_settings_by_role("keystone-setup", "keystone")
