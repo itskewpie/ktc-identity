@@ -1,5 +1,2 @@
-# memcache package
-case platform
-when "ubuntu"
-  default["keystone"]["platform"]["memcache_python_packages"] = [ "python-memcache" ]
-end
+# set the default recipe for rabbit
+default["openstack"]["identity"]["rabbit_server_chef_role"] = "ktc-messaging"
