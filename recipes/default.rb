@@ -8,10 +8,10 @@ class Chef::Recipe
 end
 
 d1 = get_openstack_service_template(get_interface_address("management"), "5000")
-register_service("identity-api", d1)
+register_member("identity-api", d1)
 
 d2 = get_openstack_service_template(get_interface_address("management"), "35357")
-register_service("identity-admin", d2)
+register_member("identity-admin", d2)
 
 set_rabbit_servers "identity"
 set_memcached_servers
