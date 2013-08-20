@@ -16,8 +16,9 @@ register_member("identity-admin", d2)
 set_rabbit_servers "identity"
 set_memcached_servers
 set_database_servers "identity"
-set_service_endpoint_ip "identity-api"
-set_service_endpoint_ip "identity-admin"
+set_service_endpoint "identity-api"
+set_service_endpoint "identity-admin"
+
 node.default["openstack"]["identity"]["bind_interface"] = get_interface "management"
 
 include_recipe "openstack-common"
