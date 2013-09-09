@@ -9,10 +9,6 @@ recipe		  "ktc-identity::default", "Installs packages required for identity serv
   supports os
 end
 
-%w{
-  ktc-utils
-  openstack-common
-  openstack-identity
-}.each do |dep|
-  depends dep
-end
+depends "ktc-utils", "~> 0.2.1"
+depends "openstack-common", "~> 0.4.3"
+depends "openstack-identity", "~> 7.0.0"
