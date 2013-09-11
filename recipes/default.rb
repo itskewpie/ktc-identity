@@ -3,22 +3,35 @@
 ## Recipe:: default
 #
 
-class Chef::Recipe
-  include KTCUtils
-end
+include_recipe "services"
+include_recipe "ktc-utils"
 
-iface = get_interface "management"
-d1 = get_openstack_service_template(iface, "5000")
-register_member("identity-api", d1)
+iface = KTC::Network.if_lookup "management"
+ip = KTC::Network.address "management"
 
-d2 = get_openstack_service_template(iface, "35357")
-register_member("identity-admin", d2)
+Services::Connection.new run_context: run_context
+identity_api = Services::Member.new node.default.fqdn,
+  service: "identity-api",
+  port: 5000,
+  proto: "tcp",
+  ip: ip
 
-set_rabbit_servers "identity"
-set_memcached_servers
-set_database_servers "identity"
-set_service_endpoint "identity-api"
-set_service_endpoint "identity-admin"
+identity_api.save
+
+identity_admin = Services::Member.new node.default.fqdn,
+  service: "identity-admin",
+  port: 35357,
+  proto: "tcp",
+  ip: ip
+
+identity_admin.save
+
+
+#set_rabbit_servers "identity"
+#set_memcached_servers
+#set_database_servers "identity"
+#set_service_endpoint "identity-api"
+#set_service_endpoint "identity-admin"
 
 node.default["openstack"]["identity"]["bind_interface"] = iface
 

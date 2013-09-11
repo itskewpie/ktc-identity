@@ -9,6 +9,7 @@ recipe		  "ktc-identity::default", "Installs packages required for identity serv
   supports os
 end
 
-depends "ktc-utils", "~> 0.2.1"
+depends "ktc-utils", "~> 0.3.1"
 depends "openstack-common", "~> 0.4.3"
 depends "openstack-identity", "~> 7.0.0"
+depends "services", "~> 1.0.6"
