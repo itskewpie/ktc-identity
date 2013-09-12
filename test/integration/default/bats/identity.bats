@@ -1,7 +1,7 @@
 # vim: ft=sh:
 
 @test "identity registered with etcd" {
-  wget http://localhost:4001/v1/keys/services/memcached/members
+  curl http://127.0.0.1:4001/v1/keys/services/memcached/members
 }
 
 @test "identity api is running" {

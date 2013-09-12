@@ -24,7 +24,9 @@
       "ref": "da3a2afd190dd82218ce924b9e110b969d7bf978"
     },
     "ktc-utils": {
-      "path": "../ktc-utils"
+      "locked_version": "0.3.2",
+      "git": "git://github.com/cloudware-cookbooks/ktc-utils.git",
+      "ref": "aba680acad3ce639268364a9a23c53c81805f2ec"
     },
     "memcached": {
       "locked_version": "1.5.1",

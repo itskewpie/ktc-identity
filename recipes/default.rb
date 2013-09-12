@@ -26,12 +26,7 @@ identity_admin = Services::Member.new node.default.fqdn,
 
 identity_admin.save
 
-
-#set_rabbit_servers "identity"
-#set_memcached_servers
-#set_database_servers "identity"
-#set_service_endpoint "identity-api"
-#set_service_endpoint "identity-admin"
+KTC::Attributes.set
 
 node.default["openstack"]["identity"]["bind_interface"] = iface
 
@@ -39,6 +34,3 @@ include_recipe "openstack-common"
 include_recipe "openstack-common::logging"
 include_recipe "openstack-identity::server"
 include_recipe "openstack-identity::registration"
-
-# save so searches in other recipes can access node attrs
-node.save
