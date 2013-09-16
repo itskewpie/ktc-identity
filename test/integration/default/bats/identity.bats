@@ -1,7 +1,11 @@
 # vim: ft=sh:
 
-@test "identity registered with etcd" {
-  curl http://127.0.0.1:4001/v1/keys/services/memcached/members
+@test "identity-api registered with etcd" {
+  curl http://127.0.0.1:4001/v1/keys/services/identity-api/members
+}
+
+@test "identity-admin registered with etcd" {
+  curl http://127.0.0.1:4001/v1/keys/services/identity-admin/members
 }
 
 @test "identity api is running" {
