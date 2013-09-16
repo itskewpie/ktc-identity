@@ -1,9 +1,10 @@
 name              "ktc-identity"
 maintainer        "KT Cloudware"
-description	  "Installs/Configures Openstack Network Service"
+maintainer_email  "wil.reichert@kt.com"
+license           "All rights reserved"
+description	      "Installs/Configures Openstack Identity Service"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "1.0.20"
-recipe		  "ktc-identity::default", "Installs packages required for identity server"
+version           "1.1.0"
 
 %w{ centos ubuntu }.each do |os|
   supports os
