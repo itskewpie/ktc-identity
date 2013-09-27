@@ -17,6 +17,7 @@ identity_api = Services::Member.new node.default.fqdn,
   ip: ip
 
 identity_api.save
+KTC::Network.add_service_nat "identity-api", 5000
 
 identity_admin = Services::Member.new node.default.fqdn,
   service: "identity-admin",
@@ -25,6 +26,7 @@ identity_admin = Services::Member.new node.default.fqdn,
   ip: ip
 
 identity_admin.save
+KTC::Network.add_service_nat "identity-admin", 35357
 
 KTC::Attributes.set
 
