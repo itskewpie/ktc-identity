@@ -10,7 +10,7 @@ version           "1.1.0"
   supports os
 end
 
-depends "ktc-utils", "~> 0.3.2"
+depends "ktc-utils", "> 0.3.2"
 depends "openstack-common", "~> 0.4.3"
 depends "openstack-identity", "~> 7.0.0"
-depends "services", "~> 1.0.6"
+depends "services", "> 1.0.6"
