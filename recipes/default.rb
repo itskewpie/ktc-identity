@@ -10,7 +10,7 @@ iface = KTC::Network.if_lookup "management"
 ip = KTC::Network.address "management"
 
 Services::Connection.new run_context: run_context
-identity_api = Services::Member.new node.default.fqdn,
+identity_api = Services::Member.new node[:fqdn],
   service: "identity-api",
   port: 5000,
   proto: "tcp",
@@ -18,7 +18,7 @@ identity_api = Services::Member.new node.default.fqdn,
 
 identity_api.save
 
-identity_admin = Services::Member.new node.default.fqdn,
+identity_admin = Services::Member.new node[:fqdn],
   service: "identity-admin",
   port: 35357,
   proto: "tcp",
