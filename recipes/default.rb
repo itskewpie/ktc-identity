@@ -34,3 +34,6 @@ include_recipe "openstack-common"
 include_recipe "openstack-common::logging"
 include_recipe "openstack-identity::server"
 include_recipe "openstack-identity::registration"
+
+# save so searches in other recipes can access node attrs
+node.save
