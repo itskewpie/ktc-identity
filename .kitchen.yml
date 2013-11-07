@@ -20,6 +20,8 @@ suites:
     - recipe[ktc-database]
     - recipe[ktc-messaging]
     - recipe[ktc-memcached]
+    - recipe[sensu::default]
+    - recipe[collectd::client]
     - recipe[ktc-identity]
   attributes:
     etcd:
